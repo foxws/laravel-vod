@@ -55,6 +55,27 @@ abstract class Streamer
         return class_basename(static::class);
     }
 
+    protected function getMappingUrl(string $name, array $parameters = [], string $uri): string
+    {
+        $route = trim(route($name, $parameters, false), '/');
+
+        $path = sprintf('%s/%s', $route, $uri);
+
+        $hash = substr(
+            md5($path, true),
+            0,
+            $this->getTokenHashSize()
+        );
+
+        // Add hash prefix
+        $path = $hash.$path;
+
+        // Add PKCS#7 padding
+        $pad = 16 - (strlen($path) % 16);
+
+        return $path.str_repeat(chr($pad), $pad);
+    }
+
     protected function getEncryptedPath(string $path): string
     {
         return openssl_encrypt(
