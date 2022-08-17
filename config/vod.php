@@ -3,16 +3,25 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | DASH (VOD)
+    | VOD
     |--------------------------------------------------------------------------
     |
-    | This configures the DASH parameters.
+    | This configures the vod parameters.
     |
     */
 
-    'dash' => [
-        'url' => env('DASH_URL'),
-        'key' => env('DASH_KEY'),
-        'iv' => env('DASH_IV'),
-    ],
+    'url' => env('VOD_URL'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Secure Token
+    |--------------------------------------------------------------------------
+    |
+    | This configures the secure token parameters.
+    |
+    */
+
+    'key' => env('VOD_TOKEN_KEY'),
+
+    'iv' => env('VOD_TOKEN_IV'),
 ];

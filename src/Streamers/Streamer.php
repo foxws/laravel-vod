@@ -54,4 +54,35 @@ abstract class Streamer
 
         return class_basename(static::class);
     }
+
+    protected function getEncryptedPath(string $path): string
+    {
+        return openssl_encrypt(
+            $path,
+            'aes-256-cbc',
+            $this->getTokenKey(),
+            OPENSSL_RAW_DATA | OPENSSL_NO_PADDING,
+            $this->getTokenIv()
+        );
+    }
+
+    protected function getEncodedPath(string $path): string
+    {
+        return rtrim(strtr(base64_encode($path), '+/', '-_'), '=');
+    }
+
+    protected function getTokenKey(): string
+    {
+        return pack('H*', config('vod.key'));
+    }
+
+    protected function getTokenIv(): string
+    {
+        return pack('H*', config('vod.iv'));
+    }
+
+    protected function getTokenHashSize(): int
+    {
+        return config('vod.hash_size', 8);
+    }
 }
