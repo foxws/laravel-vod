@@ -35,13 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Foxws\\LaravelVod\\": "src",
-            "Foxws\\LaravelVod\\Database\\Factories\\": "database/factories"
+            "Foxws\\Vod\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Foxws\\LaravelVod\\Tests\\": "tests"
+            "Foxws\\Vod\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,10 +55,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Foxws\\LaravelVod\\LaravelVodServiceProvider"
+                "Foxws\\Vod\\VodServiceProvider"
             ],
             "aliases": {
-                "LaravelVod": "Foxws\\LaravelVod\\Facades\\LaravelVod"
+                "Vod": "Foxws\\Vod\\Facades\\Vod"
             }
         }
     },
