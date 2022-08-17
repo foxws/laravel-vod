@@ -55,7 +55,7 @@ abstract class Streamer
         return class_basename(static::class);
     }
 
-    protected function getMappingUrl(string $name, array $parameters = [], string $uri): string
+    protected function getMappingUrl(string $name, array $parameters, string $uri): string
     {
         $route = trim(route($name, $parameters, false), '/');
 

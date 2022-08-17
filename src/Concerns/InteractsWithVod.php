@@ -4,5 +4,4 @@ namespace Foxws\Vod\Concerns;
 
 trait InteractsWithVod
 {
-
 }
