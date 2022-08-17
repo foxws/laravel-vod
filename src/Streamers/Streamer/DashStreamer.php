@@ -6,5 +6,4 @@ use Foxws\Vod\Streamers\Streamer;
 
 class DashStreamer extends Streamer
 {
-
 }
