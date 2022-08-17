@@ -2,9 +2,9 @@
 
 namespace Foxws\LaravelVod\Tests;
 
+use Foxws\LaravelVod\LaravelVodServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Foxws\LaravelVod\LaravelVodServiceProvider;
 
 class TestCase extends Orchestra
 {
