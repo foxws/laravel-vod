@@ -28,7 +28,7 @@ class ClipMapping extends Mapping
     public function toArray(): array
     {
         return [
-            $this->attributes
+            $this->attributes,
         ];
     }
 }
