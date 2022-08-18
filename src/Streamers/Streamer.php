@@ -75,7 +75,7 @@ abstract class Streamer
 
     abstract public function getUrl(array $parameters): string;
 
-    protected function getMappingUrl(array $parameters, string $uri): string
+    protected function getMappingUrl(array $parameters = [], string $uri): string
     {
         $route = trim(route($this->route, $parameters, false), '/');
 

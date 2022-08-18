@@ -4,8 +4,8 @@ namespace Foxws\Vod\Http\Controllers;
 
 use Foxws\Vod\Streamers\Streamer;
 use Foxws\Vod\Vod;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class VodStreamController
 {
