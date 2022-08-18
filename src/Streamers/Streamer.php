@@ -10,6 +10,8 @@ abstract class Streamer
 
     protected ?string $label = null;
 
+    protected ?string $route = null;
+
     final public function __construct()
     {
     }
@@ -35,6 +37,13 @@ abstract class Streamer
         return $this;
     }
 
+    public function route(string $route): self
+    {
+        $this->route = $route;
+
+        return $this;
+    }
+
     public function getLabel(): string
     {
         if ($this->label) {
@@ -55,9 +64,20 @@ abstract class Streamer
         return class_basename(static::class);
     }
 
-    protected function getMappingUrl(string $name, array $parameters, string $uri): string
+    public function getRoute(): string
     {
-        $route = trim(route($name, $parameters, false), '/');
+        if ($this->route) {
+            return $this->route;
+        }
+
+        return '';
+    }
+
+    abstract public function getUrl(array $parameters): string;
+
+    protected function getMappingUrl(array $parameters = [], string $uri): string
+    {
+        $route = trim(route($this->route, $parameters, false), '/');
 
         $path = sprintf('%s/%s', $route, $uri);
 

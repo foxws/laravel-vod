@@ -6,9 +6,9 @@ use Foxws\Vod\Streamers\Streamer;
 
 class DashStreamer extends Streamer
 {
-    public function getUrl(string $name, array $parameters = []): string
+    public function getUrl(array $parameters = []): string
     {
-        $hash = $this->getMappingUrl($name, $parameters, 'manifest.mpd');
+        $hash = $this->getMappingUrl($parameters, 'manifest.mpd');
 
         $hashPath = $this->getEncryptedPath($hash);
         $hashPath = $this->getEncodedPath($hashPath);
