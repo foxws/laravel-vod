@@ -173,6 +173,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [foxws](https://github.com/foxws)
+- [nginx-vod-module](https://github.com/kaltura/nginx-vod-module)
 - [All Contributors](../../contributors)
 
 ## License
